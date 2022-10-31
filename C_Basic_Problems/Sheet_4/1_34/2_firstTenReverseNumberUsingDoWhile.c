@@ -1,17 +1,15 @@
 #include <stdio.h>
 
-int main()
-{
+int main() {
 
-    int n = 10;
+  int n = 10;
 
-    printf("Numbers from 1 to 10: \n");
+  printf("Numbers from 1 to 10: \n");
 
-    do
-    {
-        printf("%d\n", n);
-        n--;
-    } while (n >= 1);
+  do {
+    printf("%d\n", n);
+    n--;
+  } while (n >= 1);
 
-    return 0;
+  return 0;
 }
