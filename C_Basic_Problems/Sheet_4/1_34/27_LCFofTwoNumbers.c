@@ -1,27 +1,22 @@
 #include <stdio.h>
-int main()
-{
-    int n, m, a = 1, x, y, hcf, lcm;
-    printf("enter 2 num \n");
-    scanf("%d%d", &x, &y);
-    if (x > 0)
-    {
-        n = x;
-        m = y;
-    }
-    else
-    {
-        n = y;
-        m = x;
-    }
-    while (a != 0)
-    {
-        a = n % m;
-        n = m;
-        m = a;
-    }
-    hcf = n;
-    lcm = (x * y) / hcf;
-    printf("\nLCF = %d", lcm);
-    return 0;
+int main() {
+  int n, m, a = 1, x, y, hcf, lcm;
+  printf("enter 2 num \n");
+  scanf("%d%d", &x, &y);
+  if (x > 0) {
+    n = x;
+    m = y;
+  } else {
+    n = y;
+    m = x;
+  }
+  while (a != 0) {
+    a = n % m;
+    n = m;
+    m = a;
+  }
+  hcf = n;
+  lcm = (x * y) / hcf;
+  printf("\nLCF = %d", lcm);
+  return 0;
 }
