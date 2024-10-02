@@ -1,19 +1,16 @@
-# Sourcecode
-Hactoberfest2024 
+# Contributing to Sourcecode in Hactoberfest2024 
+## 🎉 Welcome to the Hacktoberfest'24 Sourcecode Repository! 🎉 
 
-## Add Pull request in their appropriate folder already present there or create one if not, according to programming language or Topic 
-
-# Contributing to Sourcecode
-🎉 Welcome to the Hacktoberfest'23 Sourcecode Repository! 🎉
+> ### Add Pull request in their appropriate folder already present there or create one if not, according to programming language or Topic 
 
 First off, thanks for taking the time to contribute! ❤️
 
 All types of contributions are encouraged and valued. See the `issues` tab or navigate to `README.md` to contribute on a specific feature. The community looks forward to your contributions. 🎉
 
-> And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
+> And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about (optional) :
 > - Star the project
-> - Tweet about it
-> - Mention the project to your friends/colleagues
+> - Tweet about it  
+> - Mention the project to your friends/colleagues 
 
 
 ## Things before Contribution:
