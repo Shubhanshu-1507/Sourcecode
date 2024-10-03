@@ -16,7 +16,7 @@ struct Node {
 
 
 class Solution {
-    bool isBSTHelper(Node* root, int minRange, int maxRange){
+    bool isBSTHelper(Node* root, int minRange, int maxRange) {
         if(!root) return true;
         
         bool isLeftSubTreeBST = isBSTHelper(root->left, minRange, root->data);
