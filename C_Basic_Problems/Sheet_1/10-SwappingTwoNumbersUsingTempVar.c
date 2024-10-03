@@ -4,8 +4,8 @@ int main()
 {
     int a, b, temp;
     scanf("%d%d",&a,&b);
-    a = a + b;  
-    b = a - b; 
-    a = a - b;  
+    temp = a;
+    a = b;
+    b = temp;
     printf("A= %d and B = %d\n",a,b);
-}
+} 
