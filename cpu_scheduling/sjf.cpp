@@ -37,7 +37,7 @@ void sjfScheduling(vector<Process>& processes) {
 
 int main() {
     vector<Process> processes = {{1, 6}, {2, 8}, {3, 7}, {4, 3}};
-    
+
     sjfScheduling(processes);
     return 0;
 }

@@ -37,7 +37,7 @@ void fcfsScheduling(vector<Process>& processes) {
 
 int main() {
     vector<Process> processes = {{1, 10}, {2, 5}, {3, 8}};
-    
+
     fcfsScheduling(processes);
     return 0;
 }

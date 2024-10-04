@@ -12,14 +12,14 @@ void roundRobinScheduling(vector<Process>& processes, int quantum) {
     vector<int> remainingTime(processes.size());
     vector<int> waitingTime(processes.size(), 0);
     vector<int> turnAroundTime(processes.size());
-    
+
     for (int i = 0; i < processes.size(); i++) {
         remainingTime[i] = processes[i].burstTime;
     }
 
     int time = 0;
     bool done;
-    
+
     do {
         done = true;
         for (int i = 0; i < processes.size(); i++) {
@@ -51,7 +51,7 @@ void roundRobinScheduling(vector<Process>& processes, int quantum) {
 int main() {
     vector<Process> processes = {{1, 10}, {2, 5}, {3, 8}};
     int quantum = 2;
-    
+
     roundRobinScheduling(processes, quantum);
     return 0;
 }
