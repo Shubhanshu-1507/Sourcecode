@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html,body{
+    background-color: black; 
+    color: white;
+    overflow-x: hidden;
+}
+
+
+.topicList{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    height: 300px;
+    text-transform: uppercase;
+    overflow-y: scroll;
+    background:rgb(128, 128, 128);
+    border-radius: 12px;
+}
+
+
+
+
+
+
