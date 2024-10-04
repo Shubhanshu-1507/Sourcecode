@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+int gcd(int divident, int divisor)
+{
+    int remainder;
+
+    remainder = divident % divisor;
+
+    if(remainder == 0)
+        return divisor;
+    else
+    {
+        gcd(divisor, remainder);
+    }
+
+}
+
+int main()
+{
+    int a, b;
+    cout<<"Enter the Divident and Divisor : "<<endl;
+    
+    cin>>a>>b;
+
+    int result = gcd(a,b);
+
+    cout<<"GCD is : "<<result<<endl;
+    
+    return 0;
+}
