@@ -1,0 +1,28 @@
+name: Restyle Code
+
+on:
+  pull_request:
+    paths:
+      - "**/*.c"
+      - "**/*.h"
+
+jobs:
+  restyle:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Restyler (clang-format)
+      run: |
+        clang-format -i **/*.c **/*.h
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git commit -am "Restyled code" || echo "No changes to commit"
+
+    - name: Push changes
+      run: |
+        git push origin HEAD
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
