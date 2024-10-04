@@ -1,0 +1,19 @@
+name: Restyle Code
+
+on: [pull_request]
+
+jobs:
+  restyle:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run Restyler (example using clang-format)
+      run: |
+        clang-format -i **/*.c **/*.h
+        git config user.name "github-actions"
+        git config user.email "actions@github.com"
+        git commit -am "Restyled code"
+    - name: Push changes
+      run: git push origin HEAD
