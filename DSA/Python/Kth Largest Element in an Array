@@ -1,0 +1,23 @@
+Problem: Kth Largest Element in an Array
+Description:
+Find the k-th largest element in an unsorted array. Note that it is the k-th largest element in sorted order, not the k-th distinct element.
+
+Solution:
+We can use a min-heap of size k. By the time we finish iterating through the array, the root of the heap will contain the k-th largest element.
+
+import heapq
+
+def find_kth_largest(nums: list[int], k: int) -> int:
+    heap = []
+    
+    for num in nums:
+        heapq.heappush(heap, num)
+        if len(heap) > k:
+            heapq.heappop(heap)
+    
+    return heap[0]
+
+# Example:
+nums = [3, 2, 1, 5, 6, 4]
+k = 2
+print(find_kth_largest(nums, k))  # Output: 5
