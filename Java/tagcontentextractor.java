@@ -42,7 +42,7 @@ public class TagContentExtractor {
           if (openingTags.isEmpty() ||
               !openingTags.pop().equals(tag.substring(1))) {
             break;
-          }      
+          }
         } else {
           openingTags.push(tag);
         }
