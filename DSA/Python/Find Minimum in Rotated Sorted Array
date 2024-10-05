@@ -1,0 +1,22 @@
+Problem: Find Minimum in Rotated Sorted Array
+Description:
+Suppose an array of length n is sorted in ascending order, but is rotated at some pivot unknown to you beforehand. You need to find the minimum element in this array. The array does not contain duplicates.
+
+Solution:
+We can solve this problem using binary search, taking advantage of the rotated property.
+
+def find_min(nums: list[int]) -> int:
+    left, right = 0, len(nums) - 1
+    
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] > nums[right]:
+            left = mid + 1
+        else:
+            right = mid
+    
+    return nums[left]
+
+# Example:
+nums = [4, 5, 6, 7, 0, 1, 2]
+print(find_min(nums))  # Output: 0
