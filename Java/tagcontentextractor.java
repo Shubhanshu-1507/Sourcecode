@@ -39,8 +39,7 @@ public class TagContentExtractor {
         }
         String tag = line.substring(i + 1, j);
         if (tag.startsWith("/")) {
-          if (openingTags.isEmpty() ||
-              !openingTags.pop().equals(tag.substring(1))) {
+          if (openingTags.isEmpty() || !openingTags.pop().equals(tag.substring(1))) {
             break;
           }
         } else {
