@@ -5,11 +5,8 @@
         for (int i = 0; i <= amount; i++) {
             dp[i] = amount + 1;
         }
-        
-        // Base case: No coins are needed to make the amount 0
+ 
         dp[0] = 0;
-        
-        // Iterate through each amount from 1 to amount
         for (int i = 1; i <= amount; i++) {
             // Check each coin
             for (int coin : coins) {
@@ -18,8 +15,6 @@
                 }
             }
         }
-        
-        // If dp[amount] is still amount + 1, it means it's not possible to form the amount
         return dp[amount] > amount ? -1 : dp[amount];
     }
 
@@ -27,6 +22,6 @@
         CoinChange cc = new CoinChange();
         int[] coins = {1, 2, 5};
         int amount = 11;
-        System.out.println(cc.coinChange(coins, amount));  // Output: 3
+        System.out.println(cc.coinChange(coins, amount)); 
     }
 }
