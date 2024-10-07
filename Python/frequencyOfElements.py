@@ -1,3 +1,3 @@
-array = [1, 2, 2, 3, 3, 3]
+array = list(map(int, input().split()))
 from collections import Counter
 print(Counter(array))
