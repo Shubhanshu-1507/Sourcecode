@@ -1,29 +1,3 @@
-/**
-* @file
-* @brief Solution for Longest Substring Without Repeating Characters problem.
-* @details
-* Problem link: https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
-* 
-* Intuition:
-* 1) The intuition is straightforward and simple. We track the frequency of characters.
-* 2) Since we can't use a string to track the longest substring without repeating characters efficiently (as removing a character from the front of a string isn't O(1)), we optimize the solution using a deque approach.
-*
-* Approach:
-* 1) Initialize an unordered_map to track the frequency of characters.
-* 2) Use a deque for pushing characters, and update the result deque (`res`) with the current deque (`temp`) 
-*    whenever we find a longer substring.
-* 3) Use a while loop to reduce the frequency from the front, incrementing `i`, 
-*    and removing characters from the `temp` deque as we no longer need them.
-* 4) Return `res.size()` as we are interested in the length of the longest substring.
-* 
-* Time Complexity: O(N)
-* Space Complexity: O(N)
-* 
-* I hope this helps to understand.
-* Thank you!
-* @author [Ashish Kumar Sahoo](github.com/ashish5kmax)
-**/
-
 #include <iostream>        // for IO Operations
 #include <unordered_map>   // for std::unordered_map
 #include <deque>           // for std::deque
