@@ -1,22 +1,3 @@
-/**
- * Problem Description:
- * Given two strings word1 and word2, return the minimum number of operations required to convert word1 to word2.
- * You have the following three operations permitted on a word:
- * - Insert a character
- * - Delete a character
- * - Replace a character
- *
- *
- * Example:
- * Input: word1 = "horse", word2 = "ros"
- * Output: 3
- * Explanation:
- * horse -> rorse (replace 'h' with 'r')
- * rorse -> rose (remove 'r')
- * rose -> ros (remove 'e')
- * Therefore, the minimum number of operations required is 3.
- */
-
 class Solution {
 private:
     int SolveUsingMemo(string a, string b, int i, int j,vector<vector <int>>& dp){
@@ -56,10 +37,3 @@ public:
         return SolveUsingMemo(word1,word2,i,j,dp);
     }
 };
-
-// Complexity
-// Time Complexity:
-// The time complexity is (O(m \times n)), where (m) and (n) are the lengths of word1 and word2, respectively. This is because each subproblem is solved only once and stored in the dp table.
-
-// Space Complexity:
-// The space complexity is (O(m \times n)) due to the 2D array dp used for memoization.
