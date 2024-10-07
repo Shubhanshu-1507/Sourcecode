@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <math.h>
+using namespace std;
+
 class Solution {
 private:
     bool check(vector<int>curr,vector<int>prev){
@@ -32,7 +38,12 @@ private:
         return next[0];
     }
 public:
-    int maxHeight(vector<vector<int>>& cuboids) {
+    int maxHeight() {
+         vector<vector<int>> cuboids = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    }; 
         for(auto &cuboid:cuboids){
             sort(cuboid.begin(),cuboid.end());
         }

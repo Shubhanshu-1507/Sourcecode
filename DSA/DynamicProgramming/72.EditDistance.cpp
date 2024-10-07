@@ -1,3 +1,9 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <math.h>
+using namespace std;
+
 class Solution {
 private:
     int SolveUsingMemo(string a, string b, int i, int j,vector<vector <int>>& dp){
