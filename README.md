@@ -1,3 +1,9 @@
+## Notice : Announcement 📢
+
+### - To all those who want to contribute & those who alread did in this repository , I'm sorry to say but someone might have reported this repository and now this repository got excluded from hacktoberfest , Maybe a large number of people have open a pull requested and i might have accepted and merged some PR which doesn't qualify their values and that's why they excluded this repository , Anyways , please Don't Spam other repository with invalid  PR and Don't report any repository without any thorough checkup.
+
+### Stop OPening PR & ISSUES in this Repository , IT got excluded , Thanks ( From Now on , I won't be accepting any PR merged request in this repo , & please make sure you made valid PR request in any of hacktoberfest Repo's ) 
+
 # Contributing to Sourcecode in Hactoberfest2024 
 ## 🎉 Welcome to the Hacktoberfest'24 Sourcecode Repository! 🎉 
 
