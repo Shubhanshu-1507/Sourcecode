@@ -1,7 +1,7 @@
 import scrapy
 # from ..items import ScrapperItem
 
-class QoutesSpider(scrapy.Spider):
+class ScrapperSpider(scrapy.Spider):
     name='aaj'
     start_urls=[
         'https://www.aajtak.in/rssfeeds?id=home'
