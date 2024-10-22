@@ -1,0 +1,120 @@
+
+--Step 1: Import the Dataset
+
+CREATE DATABASE IF NOT EXISTS TMA_data;
+USE TMA_data;
+
+--Step 2: Check the Data Types
+
+DESCRIBE TMA_data;
+
+--Step 2: Optimize Data Types
+
+-- Modify data types for optimization
+ALTER TABLE TMA_data MODIFY COLUMN Office VARCHAR(255);
+ALTER TABLE TMA_data MODIFY COLUMN Department VARCHAR(255);
+ALTER TABLE TMA_data MODIFY COLUMN headcount INT;
+
+ALTER TABLE TMA_data MODIFY COLUMN offers_recruitment_firm1 VARCHAR(50);
+ALTER TABLE TMA_data MODIFY COLUMN offers_recruitment_firm2 VARCHAR(50);
+ALTER TABLE TMA_data MODIFY COLUMN offers_recruitment_firm3 VARCHAR(50);
+ALTER TABLE TMA_data MODIFY COLUMN offers_total VARCHAR(50);
+
+ALTER TABLE TMA_data MODIFY COLUMN acceptance_recruitment_firm1 VARCHAR(50);
+ALTER TABLE TMA_data MODIFY COLUMN acceptance_recruitment_firm2 VARCHAR(50);
+ALTER TABLE TMA_data MODIFY COLUMN acceptance_recruitment_firm3 VARCHAR(50);
+ALTER TABLE TMA_data MODIFY COLUMN acceptance_total VARCHAR(50);
+
+
+--Step 3: Recompute the Totals
+
+-- Recompute offers_total
+UPDATE TMA_data
+SET offers_total = CAST(SUBSTRING_INDEX(offers_recruitment_firm1, '|', 1) AS UNSIGNED) +
+                   CAST(SUBSTRING_INDEX(offers_recruitment_firm2, '|', 1) AS UNSIGNED) +
+                   CAST(SUBSTRING_INDEX(offers_recruitment_firm3, '|', 1) AS UNSIGNED);
+
+-- Recompute acceptance_total
+UPDATE TMA_data
+SET acceptance_total = CAST(SUBSTRING_INDEX(acceptance_recruitment_firm1, '|', 1) AS UNSIGNED) +
+                       CAST(SUBSTRING_INDEX(acceptance_recruitment_firm2, '|', 1) AS UNSIGNED) +
+                       CAST(SUBSTRING_INDEX(acceptance_recruitment_firm3, '|', 1) AS UNSIGNED);
+
+
+--Step 4: Create fig1 Table
+
+-- Create fig1 table
+CREATE TABLE fig1 (
+  Office VARCHAR(255),
+  Department VARCHAR(255),
+  headcount INT,
+  offers_total INT,
+  offers_senior INT,
+  offers_inclusive INT,
+  acceptance_total INT,
+  acceptance_senior INT,
+  acceptance_inclusive INT
+);
+
+-- Insert data into fig1
+INSERT INTO fig1 (Office, Department, headcount, offers_total, offers_senior, offers_inclusive, acceptance_total, acceptance_senior, acceptance_inclusive)
+SELECT
+  Office,
+  Department,
+  CAST(headcount AS UNSIGNED) AS headcount,
+  CAST(SUBSTRING_INDEX(offers_total, '|', 1) AS UNSIGNED) AS offers_total,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm1, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm2, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm3, '|', 2), '|', -1) AS UNSIGNED) AS offers_senior,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm1, '|', -1), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm2, '|', -1), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm3, '|', -1), '|', -1) AS UNSIGNED) AS offers_inclusive,
+  CAST(SUBSTRING_INDEX(acceptance_total, '|', 1) AS UNSIGNED) AS acceptance_total,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm1, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm2, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm3, '|', 2), '|', -1) AS UNSIGNED) AS acceptance_senior,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm1, '|', -1), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm2, '|', -1) , '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm3, '|', -1), '|', -1) AS UNSIGNED) AS acceptance_inclusive
+FROM TMA_data;
+
+
+--Verify the Contents of fig1
+SELECT * FROM fig1;
+
+--Step 4: Create the easy_data Table
+
+CREATE TABLE easy_data (
+  Office VARCHAR(255),
+  Department VARCHAR(255),
+  headcount INT,
+  offers_total INT,
+  offers_senior INT,
+  offers_inclusive INT,
+  acceptance_total INT,
+  acceptance_senior INT,
+  acceptance_inclusive INT
+);
+
+
+INSERT INTO easy_data (Office, Department, headcount, offers_total, offers_senior, offers_inclusive, acceptance_total, acceptance_senior, acceptance_inclusive)
+SELECT
+  Office,
+  Department,
+  CAST(headcount AS UNSIGNED) AS headcount,
+  CAST(SUBSTRING_INDEX(offers_total, '|', 1) AS UNSIGNED) AS offers_total,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm1, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm2, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm3, '|', 2), '|', -1) AS UNSIGNED) AS offers_senior,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm1, '|', -1), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm2, '|', -1), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(offers_recruitment_firm3, '|', -1), '|', -1) AS UNSIGNED) AS offers_inclusive,
+  CAST(SUBSTRING_INDEX(acceptance_total, '|', 1) AS UNSIGNED) AS acceptance_total,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm1, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm2, '|', 2), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm3, '|', 2), '|', -1) AS UNSIGNED) AS acceptance_senior,
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm1, '|', -1), '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm2, '|', -1) , '|', -1) AS UNSIGNED) +
+  CAST(SUBSTRING_INDEX(SUBSTRING_INDEX(acceptance_recruitment_firm3, '|', -1), '|', -1) AS UNSIGNED) AS acceptance_inclusive
+FROM TMA_data;
+

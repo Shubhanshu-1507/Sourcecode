@@ -1,0 +1,5 @@
+Step 3: Justification for Structure (in 250 words)
+
+The easy_data table is structured to facilitate further analysis and visualization by breaking down composite fields into distinct, interpretable columns. This transformation makes the data more manageable for queries, as each offer and acceptance metric (total, senior, and inclusive) is stored in separate columns. The structure improves clarity and reduces redundancy since each column now stores a single value, making it easier to apply statistical methods or visualizations like bar charts, pie charts, or trend lines based on offer and acceptance rates.
+
+Additionally, the decision to store Office, Department, and headcount as individual columns allows for grouping and filtering the data by office location or department, which is essential for comparative analysis. By converting textual numbers into numeric data types, we enable efficient calculations, aggregations, and other numerical operations, thereby reducing the risk of errors in later stages of analysis. This structure is optimized for performance and ease of use in tools like Pandas, Matplotlib, or other BI platforms for further insights.

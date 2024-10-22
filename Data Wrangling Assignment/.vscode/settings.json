@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "xprotocol",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 33060,
+            "driver": "MySQL",
+            "name": "TMA_data",
+            "database": "TMA_data",
+            "username": "root",
+            "password": "Toor",
+            "connectionTimeout": 50
+        }
+    ]
+}

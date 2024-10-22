@@ -1,0 +1,31 @@
+Question 1
+You are an analytics consultant for a recently launched company. Your company is on a hiring
+spree and has been working with three different recruitment firms to fill the available positions.
+The breakdown of the performance of each recruitment firm across three company locations
+(i.e., Singapore, Hong Kong, Tokyo) is detailed in Figure 1 below.
+
+Figure 1: Performance of the recruitment firms.
+Note: entries with the pattern “xx|yy|zz” are interpreted as follows: xx = total number of
+offers made/accepted; yy = number of offers for senior positions made/accepted; zz =
+number of offers for inclusive positions made/accepted.
+
+The dataset without the “Total” rows is available as a MySQL dump file (TMA_data.sql).
+
+(a) Import the dataset (TMA_data.sql) into your MySQL server. Check the resulting
+TMA_data MySQL table and evaluate the suitability of the data type for each field.
+Use the ALTER TABLE command to change them (where appropriate) to save storage
+space while not losing any information, and/or to change them to a data type more
+suited to their purpose. If, in your assessment, no change is required to the data types,
+please state this as your answer to this part and justify why.
+
+(b) Using appropriate MySQL statements, recompute all the totals columns in the
+TMA_data table, and update the table with these recomputed values.
+
+(c) Using appropriate MySQL statements, recreate Figure 1 as a MySQL table named
+fig1 by using the updated TMA_data table from Q1(b).
+
+(d) Using appropriate MySQL statements, create a new MySQL table named easy_data
+based on the updated TMA_data table from Q1(b). This new easy_data table
+should contain all the information available in the TMA_data table and should be
+structured in a way that makes it easy to use for further analysis and visualisation. In
+250 words or less, justify the structure of your easy_data table.
